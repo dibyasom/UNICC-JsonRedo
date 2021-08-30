@@ -1,10 +1,20 @@
 # Importing dependecnies and parent factory model.
+"""
+    Concrete Factory override the factory method in order to change the resulting
+    product's type.
+"""
+
+# Importing dependecnies and parent factory model.
 from ..Factory.notif_factory import Creator
-from ..Interface.notif_interface import Product
+from ..Interface.notif_interface import Notifier
 from ..Product.sms_notif import SmsNotifier
 
+from Models.User import User
 
 class SmsNotifierFactory(Creator):
 
-    def _factory_method(self) -> Product:
-        return SmsNotifier()
+    def __init__(self, user: User) -> None:
+        self.user = user
+
+    def _factory_method(self) -> Notifier:
+        return SmsNotifier(user=self.user)
