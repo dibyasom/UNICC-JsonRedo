@@ -1,12 +1,12 @@
 from Models.Product.email_notif import EmailNotifier
-from Models.Factory.notif_factory import Creator
+from Models.Factory.notif_factory import NotifierFactory
 from Models.ConcreteFactory.sms_notif_factory import SmsNotifierFactory
 from Models.ConcreteFactory.post_notif_factory import PostNotifierFactory
 from Models.ConcreteFactory.email_notif_factory import EmailNotifierFactory
 from Models.User import User
 
 
-def client_code(creator: Creator) -> None:
+def client_code(creator: NotifierFactory) -> None:
     job = creator.notify_job()
     if job:
         print(job)

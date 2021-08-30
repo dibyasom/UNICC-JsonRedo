@@ -1,8 +1,8 @@
 """
-    The Creator class declares the factory method that is supposed to return an
+    This Creator class declares the factory method that is supposed to return an
     object of a Notifier class. 
     The Creator's subclasses (Defined in '/ConcreteFactory/*') should provide the
-    implementation of '_factory_method' method for its specific use case.
+    implementation of '_factory_method' method for its own context.
 """
 
 # Importing dependencies.
@@ -19,7 +19,7 @@ from Exceptions.invalid_post_req import InvalidPostReq
 from Exceptions.invalid_sms_req import InvalidSmsReq
 
 
-class Creator(ABC):
+class NotifierFactory(ABC):
 
     @abstractmethod
     def _factory_method(self) -> Notifier:
