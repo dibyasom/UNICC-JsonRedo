@@ -1,5 +1,4 @@
 # Importing library for networking
-from concurrent_dispatcher import dispatch_concurrent
 import ijson
 
 # Importing ijson for json lazy loading.
@@ -10,6 +9,7 @@ from urllib.error import URLError
 PENDING_NOTIF_JSON_SOURCE = "https://raw.githubusercontent.com/UN-ICC/notifications-processor/master/notifications_log.json"
 
 # Importing Notify dispatcher, which leverages the Interface for a single unified access to all Factory variants.
+from concurrent_dispatcher import dispatch_concurrent
 
 
 def main() -> None:
