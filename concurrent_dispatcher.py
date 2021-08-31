@@ -1,14 +1,15 @@
 # Actual dispatcher, which calls the required factory creator.
-from celery.utils.log import get_task_logger
 from dispatcher import Dispatcher
+
+# Configuring logger.
+from celery.utils.log import get_task_logger
+logger = get_task_logger(__name__)
 
 # Celery dependencies and config.
 from celery import Celery
 import redis
 
-app = Celery('tasks', broker='redis://guest@localhost//')
-
-logger = get_task_logger(__name__)
+app = Celery('tasks', broker='redis://guest@localhost//')\
 
 
 @app.task
