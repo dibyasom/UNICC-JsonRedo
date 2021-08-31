@@ -9,13 +9,14 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
 
+from Exceptions import invalid_email_req
+from Exceptions import invalid_post_req
+
 from ..Interface.notif_interface import Notifier
 
 
 # Importing all necessary custom exceptions for handling invalid data.
-from Exceptions.invalid_email_req import InvalidEmailReq
-from Exceptions.invalid_post_req import InvalidPostReq
-from Exceptions.invalid_sms_req import InvalidSmsReq
+from Exceptions import invalid_email_req, invalid_post_req, invalid_sms_req
 
 
 class NotifierFactory(ABC):
@@ -34,16 +35,17 @@ class NotifierFactory(ABC):
 
             # Abstract method defined in interface, and implemented by concrete instances.
             # Hence, can be used in unified way to notify() regardless of sms, phone, or url.
-            print(product.notify())
+            result = product.notify()
+            return result
 
-        except InvalidEmailReq as e:
+        except invalid_email_req.InvalidEmailReq as e:
             # Name or Email missing, or email not correctly formatted. (REGEX fullmatch)
-            print(e)
+            return e
 
-        except InvalidSmsReq as e:
+        except invalid_sms_req.InvalidSmsReq as e:
             # Name or sms missing or null.
-            print(e)
+            return e
 
-        except InvalidPostReq as e:
+        except invalid_post_req.InvalidPostReq as e:
             # Name or url missing or null.
-            print(e)
+            return e

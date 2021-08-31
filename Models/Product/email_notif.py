@@ -9,7 +9,7 @@ from time import sleep
 from Models.User import User
 
 # Importing one unified interface 'Notifier' for using any factory method.
-from ..Interface.notif_interface import Notifier
+from Models.Interface.notif_interface import Notifier
 
 # Fetch constants
 from constants import *
@@ -32,7 +32,8 @@ class EmailNotifier(Notifier):
     EMAIL_REGEX = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 
     # Returns true for correctly formatter email.
-    email_validator = lambda email_str : re.fullmatch(EmailNotifier.EMAIL_REGEX, email_str)
+    def email_validator(email_str): return re.fullmatch(
+        EmailNotifier.EMAIL_REGEX, email_str)
 
     def __init__(self, user: User) -> None:
         self.user = user
@@ -41,7 +42,7 @@ class EmailNotifier(Notifier):
     def validate_data(self) -> bool:
 
         # Checking email and name are non null, and validating email string.
-        if not (self.user.name!=None and self.user.email!=None  and EmailNotifier.email_validator(self.user.email)):
+        if not (self.user.name != None and self.user.email != None and EmailNotifier.email_validator(self.user.email)):
             raise InvalidEmailReq(self.user.getData())
 
     # Implement abstract method for the required context.

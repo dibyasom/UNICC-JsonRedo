@@ -4,9 +4,9 @@
 """
 
 # Importing dependecnies and parent factory model.
-from ..Factory.notif_factory import NotifierFactory
-from ..Interface.notif_interface import Notifier
-from ..Product.email_notif import EmailNotifier
+from Models.Factory.notif_factory import NotifierFactory
+from Models.Interface.notif_interface import Notifier
+from Models.Product.email_notif import EmailNotifier
 
 from Models.User import User
 
