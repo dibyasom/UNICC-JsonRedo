@@ -63,7 +63,7 @@ Created an Interface [NotifierInterface](./Models/Interface/notif_interface.py) 
 
 ### 2. Solving - "Finally, you need to assume that the JSON file can have thousands or millions of entries."    
 
-I draw 2 conclusions from this provide assumption.  
+I draw 2 conclusions from this provided assumption.  
 - *JSON file needs to be parsed through generator to avoid out of memory scenario*
   - > Used ijson for handling this. Here 📎 [main.py](./main.py)
 - *Notifying million users sequentially will take ages, hence concurreny is a must.*
