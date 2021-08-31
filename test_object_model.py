@@ -30,7 +30,7 @@ class TestDispatcher(unittest.TestCase):
 
     # Since
     def test_dispatcher_object_relation(self):
-        testIn = TestDispatcher.dummy.get("valid_user").get("in")
+        testIn = TestDispatcher.dummy.get("valid_user_email").get("in")
 
         print("Checking dispatch for EmailNotifierFactory ...")
         self.assertIsInstance(

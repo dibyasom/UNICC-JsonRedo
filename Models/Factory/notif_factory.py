@@ -47,5 +47,5 @@ class NotifierFactory(ABC):
             return e
 
         except invalid_post_req.InvalidPostReq as e:
-            # Name or url missing or null.
+            # Name or url missing or null. 
             return e

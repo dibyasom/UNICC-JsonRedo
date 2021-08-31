@@ -1,6 +1,6 @@
 # Delay simulated by mock functions.
 from Models.User import User
-SIMULATED_NETWORK_DELAY: float = 0.25
+SIMULATED_NETWORK_DELAY: float = 0.5
 
 #  ANSI escape codes.
 # **************************

@@ -1,5 +1,5 @@
 # Importing library for networking
-from dispatcher import Dispatcher
+from concurrent_dispatcher import dispatch_concurrent
 import ijson
 
 # Importing ijson for json lazy loading.
@@ -28,11 +28,10 @@ def main() -> None:
             # Fetch next value to be yielded.
             push_notif_for = next(pending_notif_generator)
 
-            pushed_notif = Dispatcher(
-                notif_object=push_notif_for).push_notification()
+            pushed_notif = dispatch_concurrent.delay(push_notif_for)
 
             print(pushed_notif)
-            
+
             notifications_pushed += 1
 
         except StopIteration:
