@@ -3,7 +3,7 @@
 <!-- UML Class diagam -->
 ### Design Pattern
 ![UML class diagram.](Assets/class.png)
-Imaplemented Factory design pattern to make the data model robust, extensible and easy to work with.
+Implemented Factory design pattern to make the data model robust, extensible and easy to work with.
 Created an Interface 'NotifierInterface' in python which is used through out the Models to provide Factory design.
 If a new notification medium is to be integrated, it can be done in two easy steps.
   - Creatre  the corresponding entry into /ConcreteFactory/ dir, inherit NotifierFactory and override 'factory_method()'
