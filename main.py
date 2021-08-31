@@ -35,8 +35,7 @@ def main() -> None:
             notifications_pushed += 1
 
         except StopIteration:
-            print(
-                f"JSON REDO executed sucessfully. Pushed {notifications_pushed} notifications.")
+            print("Done")
             exit()
 
 
