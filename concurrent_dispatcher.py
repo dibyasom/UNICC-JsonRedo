@@ -24,4 +24,4 @@ def dispatch_concurrent(notif_object: dict):
     else:
         logger.error(dispatcher)
 
-    return "Done"
+    return success

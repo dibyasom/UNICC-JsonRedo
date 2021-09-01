@@ -79,3 +79,43 @@ DUMMY_USER_DICT = {
         'out': "EMAIL sent to dibyasom@calcul.ai. Data: {'name': 'Dibyasom Puhan', 'email': 'dibyasom@calcul.ai', 'phone': None, 'url': None, 'type': 'email'}"
     },
 }
+
+# ****************************************
+
+DUMMY_USER_JSON_ARRAY = [
+    {
+        "name": "Brent Valdez",
+        "email": "annagregory@example.org",
+        "phone": "139.386.6589",
+        "url": "https://ayers-perry.com/",
+        "type": "email"
+    },
+    {
+        "name": "Jonathan Green",
+        "email": None,
+        "phone": "(245)765-5361x8165",
+        "url": None,
+        "type": "email"
+    },
+    {
+        "name": "Barbara Donovan",
+        "email": "richardhoffman@example.com",
+        "phone": "347-725-8534",
+        "url": None,
+        "type": "post"
+    },
+    {
+        "name": "Barbara Donovan",
+        "email": "richardhoffman@example.com",
+        "phone": "347-725-8534",
+        "url":  "https://www.url.com",
+        "type": "post"
+    },
+    {
+        "name": "Stephanie Martin",
+        "email": "rodriguezstephanie@example.org",
+        "phone": "001-621-651-0995x703",
+        "url": "https://www.nunez.com/",
+        "type": "sms"
+    },
+]

@@ -98,8 +98,11 @@ Interface [NotifierInterface](./Models/Interface/notif_interface.py) for creatin
 
 ### 5. Unit-testing
 * Implemented for 
-  - <1>  Dispatcher {[test_dispatcher](./test_dispatcher.py)} response (Log returned after sending mock sms, email, POST), and 
+  - <1> Dispatcher {[test_dispatcher](./test_dispatcher.py)} response (Log returned after sending mock sms, email, POST), and 
   - <2> Factory object instantiation {[test_object_model](./test_object_model.py)} (This was necessary as factory generator uses covariant return type to give specific variant, hence an unittest.assertIsInstance check for the same.)
+  - <3> Integration for EndToEnd test requires mocking [test_end_to_end.py](./test_end_to_end.py), my approach is to patch with fake JSON data so unittesting can be done without depending on network req. I would have written it down, but I may require some extra time for that piece.    
+    -  [__For now, test_dispatcher does sort of end-to-end test, by skipping the lazy JSON loader__]
+  
 <hr>
 
 ### 6. Logging

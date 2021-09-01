@@ -21,11 +21,16 @@ logging.info("Something")
 PENDING_NOTIF_JSON_SOURCE = "https://raw.githubusercontent.com/UN-ICC/notifications-processor/master/notifications_log.json"
 
 
-def main() -> None:
+def openurl(url: str):
+    return urlopen(url=url)
 
+
+# DRIVER CODE >>>>>>>>>>
+def main() -> None:
     try:
         pending_notif_data = ijson.items(
-            urlopen(url=PENDING_NOTIF_JSON_SOURCE), 'item')
+            openurl(PENDING_NOTIF_JSON_SOURCE), 'item')
+
     except URLError as e:
         # Network error or source is unavialable / Wrong URL.
         print('Network error or source is unavialable / Wrong URL.')
@@ -46,7 +51,8 @@ def main() -> None:
                 f"Pushed {push_notif_for} | task-id: {pushed_notif_id}")
 
         except StopIteration:
-            print("Done")
+            # JSON array parsed completely.
+            print("Pushed all notifs parsed from JSON source.")
             logging.info("Pushed all notifs parsed from JSON source.")
             exit()
 
