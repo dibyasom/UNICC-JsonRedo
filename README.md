@@ -34,7 +34,18 @@ python main.py
 # This process can be automated with docker-compose, do let me know, I'll be happy to write one :).
 ```
     
-<hr>    
+<hr> 
+
+### Dataflow highlevel overview.
+- JSON file fetched from URL.
+- Parsed lazily with generator to avoid out of memory issues.
+- Concurrent dispatcher invoked, which leverages celery to push notifications concurrently and way faster than sequential approach.
+- Uses custom Interface to the Factory generator to create class for the specific context (Type of notifier.)
+- Every class based on its type, validates data.
+- Sends mock notification.
+- Invalid data, error and successful notification push, everything is logged as and when occurs.
+
+<hr>
 
 ## Implementation description
 
