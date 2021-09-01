@@ -39,6 +39,7 @@ python main.py
 ## Implementation description
 
 <hr>
+
 ### 1. Solving - "Finally, you need to assume that the JSON file can have thousands or millions of entries."    
 
 I draw 2 conclusions from this provide assumption.  
