@@ -35,17 +35,16 @@ class NotifierFactory(ABC):
 
             # Abstract method defined in interface, and implemented by concrete instances.
             # Hence, can be used in unified way to notify() regardless of sms, phone, or url.
-            result = product.notify()
-            return result
+            return product.notify(), False
 
         except invalid_email_req.InvalidEmailReq as e:
             # Name or Email missing, or email not correctly formatted. (REGEX fullmatch)
-            return e
+            return e, True
 
         except invalid_sms_req.InvalidSmsReq as e:
             # Name or sms missing or null.
-            return e
+            return e, True
 
         except invalid_post_req.InvalidPostReq as e:
-            # Name or url missing or null. 
-            return e
+            # Name or url missing or null.
+            return e, True
