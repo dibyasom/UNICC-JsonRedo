@@ -19,8 +19,6 @@ pip install --no-cache-dir -r requirements.txt
 # Broker for Celery
 docker run -d -p 6379:6379 redis
 
-python concurrent_dispatcher
-
 # Starting the celery app.
 # [Option-1] With logging into file
 mkdir Logs && touch Logs/json_redo.log
